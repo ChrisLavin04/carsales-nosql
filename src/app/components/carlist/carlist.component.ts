@@ -32,7 +32,11 @@ export class CarlistComponent {
     this._carAPIService.addCarDetails(addCar).subscribe(carsData =>
       { this.carsData = carsData}
     );
-
+    this.getCars();
     return false;
+  }
+
+  refreshCars() {
+    this.getCars();
   }
 }
