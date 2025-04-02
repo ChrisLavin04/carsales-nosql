@@ -10,7 +10,8 @@ import { ICar } from '../interfaces/car.ts';
 export class CarApiService {
 
   private _http: HttpClient;
-  private _siteURL='http://localhost:5050/cars/'
+  //private _siteURL='http://localhost:5050/cars/'
+  private _siteURL='http://ec2-18-203-88-95.eu-west-1.compute.amazonaws.com:5050/cars'
 
 
   constructor(private http: HttpClient) {
