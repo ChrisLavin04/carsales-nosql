@@ -19,6 +19,9 @@ export class CarlistComponent {
   ngOnInit() {
     this.getCars()
   }
+  refreshCars() {
+    this.getCars();
+  }
 
   getCars() {
     this._carAPIService.getCarDetails().subscribe(carsData =>
@@ -30,13 +33,12 @@ export class CarlistComponent {
     let addCar:ICar;
     addCar=new NewCar(make,model,year,imageUrl);
     this._carAPIService.addCarDetails(addCar).subscribe(carsData =>
-      { this.carsData = carsData}
+      { this.carsData = carsData
+        this.getCars();
+      }
     );
-    this.getCars();
     return false;
   }
 
-  refreshCars() {
-    this.getCars();
-  }
+
 }

@@ -11,8 +11,8 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrl: './car.component.css'
 })
 export class CarComponent {
-  @Input() carData?:ICar;
   @Output() carDeletedEvent = new EventEmitter<string>()
+  @Input() carData?:ICar;
   carImageWidth:number = 300
 
   constructor (private _carAPIService: CarApiService) {}
@@ -21,7 +21,7 @@ export class CarComponent {
     this._carAPIService.delCarDetails(carId).subscribe(result =>
       { 
         console.log(result);
+        this.carDeletedEvent.emit("car has been deleted");
       });
-      this.carDeletedEvent.emit("car has been deleted");
   }
 }
